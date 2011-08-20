@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require "bashy"
+Bashy::Cli.start
