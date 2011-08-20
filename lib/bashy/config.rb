@@ -1,10 +1,12 @@
 require 'yaml'
 require 'fileutils'
+require 'pathname'
 
 module Bashy
   class Config
     
-    CONFIG_FILE_PATH = "~/.bashy/config.yml"
+    CONFIG_DIR_PATH = File.expand_path("~/.bashy")
+    CONFIG_FILE_PATH = File.join(CONFIG_DIR_PATH, "config.yml")
     
     def self.default_config
       {}
@@ -21,6 +23,7 @@ module Bashy
     end
     
     def self.load
+      self.create
       @@config ||= begin
         YAML::load_file(CONFIG_FILE_PATH) || self.default_config
       rescue Exception => e
