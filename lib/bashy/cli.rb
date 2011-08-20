@@ -9,8 +9,8 @@ module Bashy
       @options = options
     end
     
-    def self.start
-      cli = self.new
+    def self.start(*args)
+      cli = self.new(*args)
       cli.parse_arguments!
       cli.parse_commands!
       cli

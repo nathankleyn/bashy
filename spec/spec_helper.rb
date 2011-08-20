@@ -1,3 +1,7 @@
+require "simplecov"
+SimpleCov.start
+require "rspec"
+
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and ./helpers, and their subdirectories.
 Dir["./lib/bashy.rb"].each { |f| require f }

@@ -1,8 +1,37 @@
 require 'spec_helper'
 
 describe Bashy::Cli, "The CLI class to enable console interaction" do
-
-  describe "#parse_options" do
+  
+  describe "#start" do
+    
+    it "should call parse_arguments! and parse_commands!, and then return the Cli instance it created" do      
+      described_class.class_eval do
+        alias_method :parse_arguments_old!, :parse_arguments!
+        alias_method :parse_commands_old!, :parse_commands!
+        
+        attr_reader :parse_arguments_called, :parse_commands_called
+        
+        def parse_commands!
+          @parse_commands_called = true
+          parse_commands_old!
+        end
+        
+        def parse_arguments!
+          @parse_arguments_called = true
+          parse_arguments_old!
+        end
+      end
+      
+      cli = described_class.start(:arguments_base => ["add"])
+      
+      cli.parse_arguments_called.should be_true
+      cli.parse_commands_called.should be_true
+      cli.should be_a(Bashy::Cli)
+    end # it
+    
+  end # describe
+  
+  describe "#parse_arguments!" do
     
     it "should return no arguments if no arguments are passed" do
       subject.arguments_base = []
@@ -57,7 +86,7 @@ describe Bashy::Cli, "The CLI class to enable console interaction" do
     
   end # describe
   
-  describe "#parse_commands" do
+  describe "#parse_commands!" do
   
     it "should return an error when no command is passed" do
       subject.arguments_base = []

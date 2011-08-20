@@ -16,4 +16,5 @@ Gem::Specification.new do |spec|
   spec.bindir = "bin"
   
   spec.add_development_dependency("rspec", "~>2.6.0")
+  spec.add_development_dependency("simplecov", "~>0.4.2")
 end
