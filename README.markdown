@@ -5,6 +5,7 @@
     |_.__/ \__,_|___/_| |_|\__, (_)
                            |___/   
 
+# [![Build Status](https://secure.travis-ci.org/nathankleyn/bashy.png)](http://travis-ci.org/nathankleyn/bashy)
 # WIP - DOES NOT RUN YET.
 
 By Nathan Kleyn - <http://github.com/nathankleyn/bashy>
