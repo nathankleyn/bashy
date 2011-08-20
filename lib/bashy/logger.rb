@@ -13,7 +13,7 @@ module Bashy
       unless line.nil?
         Bashy::Config.create
         File.open(self.path, "a+") do |f|
-          f.puts line
+          f.puts(line)
         end
       end
     end

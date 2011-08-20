@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe Bashy::Cli, "The CLI class to enable console interaction" do
 
   describe "#parse_options" do

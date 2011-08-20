@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'fileutils'
 
 describe Bashy::Config, "The config class which manages the loading and dumping of config data" do
@@ -7,15 +8,11 @@ describe Bashy::Config, "The config class which manages the loading and dumping 
   end # subject
   
   before(:all) do
-    silence_warnings do
-      Bashy::Config::OLD_CONFIG_FILE_PATH, Bashy::Config::CONFIG_FILE_PATH = Bashy::Config::CONFIG_FILE_PATH, "./tmp/test_config.yml"
-    end
+    StubHelper::stub_config
   end # before
   
   after(:all) do
-    silence_warnings do
-      Bashy::Config::CONFIG_FILE_PATH = Bashy::Config::OLD_CONFIG_FILE_PATH
-    end
+    StubHelper::unstub_config
   end # after
   
   after(:each) do
@@ -71,7 +68,7 @@ describe Bashy::Config, "The config class which manages the loading and dumping 
     it "should return the default hash if the file is malformed" do
       FileUtils.mkdir_p(File.dirname(Bashy::Config::CONFIG_FILE_PATH))
       File.open(Bashy::Config::CONFIG_FILE_PATH, "w+") do |f|
-        f.write("*" * 100)
+        f.write("  test: ['hello'")
       end
       
       subject.load.should eql(Bashy::Config.default_config)
