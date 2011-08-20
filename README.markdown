@@ -5,6 +5,8 @@
     |_.__/ \__,_|___/_| |_|\__, (_)
                            |___/   
 
+# WIP - DOES NOT RUN YET.
+
 By Nathan Kleyn - <http://github.com/nathankleyn/bashy>
 
 A simple code snippet storage tool, making it easy to save, run, and manage your scripts from the Terminal.
