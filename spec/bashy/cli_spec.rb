@@ -1,6 +1,19 @@
 require 'spec_helper'
 
 describe Bashy::Cli, "The CLI class to enable console interaction" do
+
+  before(:all) do
+    klass = Bashy::Command.const_set("Test", Class.new)
+    klass.class_eval do
+      def initialize; end
+    end
+    
+    Bashy::CommandProxy.class_eval do
+      def test(*arguments)
+        Bashy::Command::Test.new(*arguments)
+      end
+    end
+  end
   
   describe "#start" do
     
@@ -22,7 +35,7 @@ describe Bashy::Cli, "The CLI class to enable console interaction" do
         end
       end
       
-      cli = described_class.start(:arguments_base => ["add"])
+      cli = described_class.start(:arguments_base => ["test"])
       
       cli.parse_arguments_called.should be_true
       cli.parse_commands_called.should be_true
@@ -97,7 +110,7 @@ describe Bashy::Cli, "The CLI class to enable console interaction" do
     end # it
     
     it "should not return an error when a command that is recognised is passed" do
-      subject.arguments_base = ["add"]
+      subject.arguments_base = ["test"]
       
       expect do
         subject.parse_commands!

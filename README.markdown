@@ -5,10 +5,9 @@
     |_.__/ \__,_|___/_| |_|\__, (_)
                            |___/   
 
-# [![Build Status](https://secure.travis-ci.org/nathankleyn/bashy.png)](http://travis-ci.org/nathankleyn/bashy)
-# WIP - DOES NOT RUN YET.
+# Bashy [![Build Status](https://secure.travis-ci.org/nathankleyn/bashy.png)](http://travis-ci.org/nathankleyn/bashy)
 
-By Nathan Kleyn - <http://github.com/nathankleyn/bashy>
+**This is a work in progress, and does not work just yet!**
 
 A simple code snippet storage tool, making it easy to save, run, and manage your scripts from the Terminal.
 
