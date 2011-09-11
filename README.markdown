@@ -33,45 +33,51 @@ You can add your scripts inline, from a file, or from a URL, and they'll be save
 
 ### add
 
-    bashy add <name> (<code_string> | <file_path> | <url>)
+    bashy add <name> <code_string>
+    bashy add <name> <file_path>
+    bashy add <name> <gist_url>
 
-Add a bashy snippet to your bashy library
+Add a bashy snippet to your bashy library.
 
 ### edit
 
     bashy edit <name>
 
-Edit a bashy snippet
+Edit a bashy snippet in your editor.
 
 ### help
 
-    bashy (help | --help)
+    bashy help
+    bashy --help
 
-Look at this help manual for bashy
+Look at this help manual for bashy.
 
 ### list
 
-    bashy (list | ls)
+    bashy list
+    bashy ls
 
-List all your available bashy snippets
+List all your available bashy snippets.
 
 ### remove
 
-    bashy (remove | rm) <name>
+    bashy remove <name>
+    bashy rm <name>
 
-Remove a bashy snippet by command name
+Remove a bashy snippet by command name.
 
 ### run
 
-    bashy (run | r) <name>
+    bashy run <name>
+    bashy r <name>
 
-Run a bashy snippet by it's command name
+Run a bashy snippet by it's command name.
 
 ### show
 
     bashy show <name>
 
-Show the contents of a bashy snippet
+Show the contents of a bashy snippet.
 
 ## Planned features
 
