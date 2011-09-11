@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Bashy::Cli, "The CLI class to enable console interaction" do
 
-  before(:all) do
+  before :all do
     klass = Bashy::Command.const_set("Test", Class.new)
     klass.class_eval do
       def initialize; end

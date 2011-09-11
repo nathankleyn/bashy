@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'lib/bashy')
+require File.join(File.dirname(__FILE__), 'lib/bashy/base')
 
 Gem::Specification.new do |spec|
   spec.name = 'bashy'

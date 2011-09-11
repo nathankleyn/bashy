@@ -1,4 +1,4 @@
-Dir["./lib/bashy/commands/**/*.rb"].each { |f| require f }
+Dir["./lib/bashy/commands/**/*.rb"].each { |f| p f; require f }
 
 module Bashy
   class CommandProxy

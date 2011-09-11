@@ -1,5 +1,4 @@
 require 'fileutils'
-
 require './lib/bashy/commands/base'
 
 module Bashy
@@ -9,7 +8,6 @@ module Bashy
       COMMAND_PATH = File.join(Bashy::Config::CONFIG_DIR_PATH, "commands")
       
       GIST_URL_PATTERNS = ["^https:\/\/gist.github.com\/([0-9]+)\/?$", "^https:\/\/raw.github.com\/gist\/([0-9]+).*$"]
-      COMMANDLINEFU_URL_PATTERNS = ["http:\/\/(?:www\.)?commandlinefu\.com\/commands\/view\/([0-9]+).*$"]
       
       def initialize(name, source, *arguments)
         super
@@ -21,8 +19,6 @@ module Bashy
         
         if matches = source.match_any(GIST_URL_PATTERNS)
           add_gist(name, matches[1])
-        elsif matches = source.match_any(COMMANDLINEFU_URL_PATTERNS)
-          add_command_line_fu(name, matches[1])
         else
           add_local(name, source)
         end
@@ -56,10 +52,6 @@ module Bashy
         else
           raise GistCouldNotBeCloned
         end
-      end
-      
-      def add_command_line_fu(url)
-        raise "commandlinefu"
       end
       
     private
